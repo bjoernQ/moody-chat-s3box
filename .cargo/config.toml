@@ -1,0 +1,21 @@
+[target.xtensa-esp32s3-none-elf]
+runner = "espflash flash --monitor --chip esp32s3"
+
+[env]
+ESP_LOG = "info"
+ESP_ALLOC_CONFIG_HEAP_ALGORITHM = "LLFF"
+
+# Set credentials at compile time (see README). Do not commit real values.
+SSID = "your-wifi-ssid"
+PASSWORD = "your-wifi-password"
+GEMINI_API_KEY = "your-gemini-api-key"
+
+[build]
+rustflags = [
+  "-C", "link-arg=-nostartfiles",
+]
+
+target = "xtensa-esp32s3-none-elf"
+
+[unstable]
+build-std = ["alloc", "core"]

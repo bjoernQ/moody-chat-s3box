@@ -1,0 +1,4 @@
+[toolchain]
+# The esp toolchain from 2026-11-16 (LLVM 23) fails to link xtensa-lx-rt's
+# `__pre_init` ("l32r: literal placed after use"). Switch back to "esp" once fixed.
+channel = "esp-1.97"
